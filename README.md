@@ -19,6 +19,8 @@ model.py file contains the code for training of the data
 
 model1.pkl is the pickle file
 
+Procfile specifies the commands that are executed by the app on startup
+
 requirements.txt contains libraries used for the execution as well as deployment
 
 In the templates folder the index.html which has the code for user interface
