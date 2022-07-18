@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<title>House price prediction</title>
+<style>
+.button {
+
+    background: #11CDD4;
+
+    background-image: -webkit-linear-gradient(top, #11CDD4, #195ECF);
+
+    background-image: -moz-linear-gradient(top, #11CDD4, #195ECF);
+
+    background-image: -ms-linear-gradient(top, #11CDD4, #195ECF);
+
+    background-image: -o-linear-gradient(top, #11CDD4, #195ECF);
+
+    background-image: -webkit-gradient(to bottom, #11CDD4, #195ECF);
+
+    border-radius: 8px;
+
+    line-height: 0;
+
+    color: #FFFFFF;
+
+    font-family:'Caveat', cursive ;
+
+    width: 108px;
+
+    font-size: 16px;
+
+    margin: 10px;
+
+    padding: 25px;
+
+    border: solid #337FED 0;
+
+    display: inline-block;
+
+    cursor: pointer;
+
+    text-align: center;
+
+ }
+
+ .button:hover {
+
+    background: #30E3CB;
+
+ }
+html
+{ 
+width: 100%; 
+height:100%;
+}
+body
+{
+  background-color: #10c2b9;
+}
+
+
+</style>
+<body background="static/co8.jpg" >
+<h1 style="font-size: 60px;color: navy"><center>HOUSE PRICE PREDICTION</center></h1>
+<div class="login">
+    <h1 style="color : NAVY;font-size: 40px;  s"><center>ENTER THE INPUT TO GET YOUR HOUSE PRICE</center></h1>
+    <form action="{{ url_for('predict')}}" method="post">
+        <label for="name"><h1 style="color: black;">ENTER YOUR PLOT AREA SIZE (In Sqft)</h1></label>
+        <input type="number" name="lotarea"  size="60" style="height:20px; width:300px;" required><br>
+        <label for="name"><h1 style="color: black;">ENTER THE TYPE OF STREET | GRAVEL : 1,PAVED : 2</h1></label>
+        <input type="number" name="street" size="60" style="height:20px; width:300px;" required><br>
+        <label for="name"><h1 style="color: black;">ENTER YOUR BASEMENT AREA SIZE (In Sqft)</h1></label>
+        <input type="number" name="totalbsmtsf"  size="60"  min="42" style="height:20px; width:300px;" required><br>
+        <label for="name"><h1 style="color: black;">ENTER YOUR LIVING AREA SIZE (In Sqft)</h1></label>
+        <input type="number" name="Grlivearea" size="60" min="42" style="height:20px; width:300px;" required><br>
+        <label for="name"><h1 style="color: black;">ENTER NUMBER OF BEDROOMS | RANGE : (1-5)</h1></label>
+        <input type="number" name="bed"  size="60"  style="height:20px; width:300px;" required><br>
+        <label for="name"><h1 style="color: black;">ENTER NUMBER OF BATHROOMS | RANGE : (1-5) </h1></label>
+        <input type="number" name="bath" size="60"  style="height:20px; width:300px;" required><br>
+        <label for="name"><h1 style="color: black;">ENTER NUMBER OF KITCHENS | RANGE (1-2) </h1></label>
+        <input type="number" name="Kitchens"  style="height:20px; width:300px;" required><br>
+        <label for="name"><h1 style="color: black;">ENTER YOUR GARAGE AREA SIZE (In Sqft)</h1></label>
+        <input type="number" name="ct"  size="60"  style="height:20px; width:300px;" required><br>
+        <button type="submit" class="button">PREDICT</button>
+    </form>
+    <h2><strong>RESULTS</strong></h2>
+    <div id="pred" style="font-size:30px;color :navy"><left><strong>{{prediction_text}}</strong></left></div>
+    <br>
+</div>
+</body>
+
+</html>
